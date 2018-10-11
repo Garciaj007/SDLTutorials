@@ -7,6 +7,10 @@ void Entity::AddComponent(std::shared_ptr<Component> component) {
 	component->Create();
 }
 
+void Entity::Create() {
+	for (auto c : components) { c->Create(); }
+}
+
 //Updates Components
 void Entity::Update() {
 	for (auto c : components) { c->Update(); }
@@ -31,6 +35,15 @@ void System::AddEntity(std::shared_ptr<Entity> e) {
 	system.emplace_back(e);
 }
 
+bool System::IsActive() {
+	return active;
+}
+
+void System::Create() {
+	active = true;
+	for (auto e : system) { e->Create(); }
+}
+
 //Updates Entities
 void System::Update() {
 	for (auto e : system) { e->Update(); }
@@ -49,4 +62,5 @@ void System::Refresh() {
 //Destroys Entities
 void System::Destroy() {
 	for (auto e : system) { e->Destroy(); }
+	active = false;
 }

@@ -24,16 +24,19 @@ private:
 public:
 	// This allows button toggle
 	bool active = false; 
+	bool image;
 
 	//Const Button States
 	static enum States { e_Normal = 0, e_Hover, e_MouseDown, e_Active } states;
 
 	//Constructor
 	UIButtonEntity(int x_, int y_, int w_, int h_, const std::string text_, TTF_Font* font_);
+	UIButtonEntity(int x_, int y_, int w_, int h_, const std::string text_, TTF_Font* font_, std::string path_);
 	~UIButtonEntity();
 
 	//Member Methods
 	void SetColor(int state, SDL_Color textColor_, SDL_Color backgroundColor_);
+	void SetColor(int state, SDL_Color textColor_);
 	void SetImage(const std::string path_);
 	void Hover();
 	void MouseDown();

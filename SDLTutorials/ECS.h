@@ -24,6 +24,7 @@ protected:
 	std::vector<std::shared_ptr<Component>> components;
 public:
 	// Virtual Functions 
+	virtual void Create();
 	virtual void Update();
 	virtual void Render();
 
@@ -38,12 +39,15 @@ public:
 
 class System {
 private :
+	bool active;
 	//A vector of Entities
 	std::vector<std::shared_ptr<Entity>> system;
 public:
 	//Member Functions
 	std::shared_ptr<Entity> CreateEntity(); ///Creates a Basic Entity
 	void AddEntity(std::shared_ptr<Entity> entity); //Allows Insertion for a complex Entity
+	bool IsActive();
+	void Create();
 	void Update();
 	void Render();
 	void Refresh();

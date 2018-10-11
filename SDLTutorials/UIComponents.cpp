@@ -124,7 +124,6 @@ void UICanvasComponent::SetDimensions(int x_, int y_, int w_, int h_) {
 void UICanvasComponent::Render() {
 	if (image) {
 		SDL_RenderCopy(GameManager::renderer, canvasTexture, nullptr, &canvasDimension);
-		SDL_DestroyTexture(canvasTexture);
 	}
 	else {
 		SDL_SetRenderDrawColor(GameManager::renderer, backgroundColor.r, backgroundColor.g, backgroundColor.b, backgroundColor.a);

@@ -1,2 +1,5 @@
-﻿  Scene1.cpp
+﻿  GameManager.cpp
+  Scene1.cpp
+  UIEntities.cpp
+  Generating Code...
   SDLTutorials.vcxproj -> C:\Development\C++\SDLTutorials\Debug\SDLTutorials.exe

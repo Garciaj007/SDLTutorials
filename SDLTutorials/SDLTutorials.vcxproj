@@ -159,23 +159,30 @@
   <ItemGroup>
     <ClInclude Include="ECS.h" />
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="Geometry.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Scene1.h" />
+    <ClInclude Include="Systems.h" />
     <ClInclude Include="Utilities.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="UIComponents.h" />
     <ClInclude Include="UIEntities.h" />
+    <ClInclude Include="Vector.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ECS.cpp" />
     <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="Geometry.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Scene1.cpp" />
+    <ClCompile Include="Systems.cpp" />
+    <ClCompile Include="Tester.cpp" />
     <ClCompile Include="Utilities.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="UIComponents.cpp" />
     <ClCompile Include="UIEntities.cpp" />
+    <ClCompile Include="Vector.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

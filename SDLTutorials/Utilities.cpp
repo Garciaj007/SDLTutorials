@@ -4,6 +4,32 @@
 
 //------------------------------------------- Asset Manager ----------------------------------------------
 
+/*
+AssetManager::AssetManager() {
+
+	for (int i = 0; i < 16; i++) {
+		colors.emplace(std::make_unique<SDL_Color>());
+	}
+
+	*colors[0] = {255, 0, 0};
+	*colors[1] = {0, 255, 0};
+	*colors[2] = {255, 0, 0};
+	*colors[3] = {255, 0, 0};
+	*colors[4] = {255, 0, 0};
+	*colors[5] = {255, 0, 0};
+	*colors[6] = {255, 0, 0};
+	*colors[7] = {255, 0, 0};
+	*colors[8] = {255, 0, 0};
+	*colors[9] = {255, 0, 0};
+	*colors[10] = {255, 0, 0};
+	*colors[11] = {255, 0, 0};
+	*colors[12] = {255, 0, 0};
+	*colors[13] = {255, 0, 0};
+	*colors[14] = {255, 0, 0};
+	*colors[15] = {255, 0, 0};
+	
+}
+*/
 SDL_Texture* AssetManager::LoadTexture(const char* filename, SDL_Renderer* ren) {
 	SDL_Surface* tempSurface = IMG_Load(filename);
 	SDL_Texture* tex = SDL_CreateTextureFromSurface(ren, tempSurface);

@@ -10,6 +10,8 @@
 //Constructors
 UIButtonEntity::UIButtonEntity(int x_, int y_, int w_, int h_, std::string text_, TTF_Font* font_) {
 
+	image = false;
+
 	//Creating Components
 	button = std::make_shared<UICanvasComponent>(w_, h_, *GameManager::assets.MakeColor(255, 255, 255));
 	buttonLabel = std::make_shared<UILabelComponent>(text_, font_, *GameManager::assets.MakeColor(255, 255, 255));
@@ -27,6 +29,27 @@ UIButtonEntity::UIButtonEntity(int x_, int y_, int w_, int h_, std::string text_
 	this->AddComponent(buttonLabel);
 }
 
+UIButtonEntity::UIButtonEntity(int x_, int y_, int w_, int h_, std::string text_, TTF_Font* font_, std::string path_) {
+
+	image = true;
+
+	//Creating Components
+	button = std::make_shared<UICanvasComponent>(w_, h_, path_);
+	buttonLabel = std::make_shared<UILabelComponent>(text_, font_, *GameManager::assets.MakeColor(255, 255, 255));
+
+	//Create Button Label Texture
+	buttonLabel->CreateTexture(buttonLabel->Blended);
+
+	//Assigning Positions
+	button->SetPosition(x_, y_);
+	buttonLabel->SetPosition(x_ + (w_ / 4) + buttonLabel->dimension.w / 4, y_ + (h_ / 4) + buttonLabel->dimension.h / 4);
+	dimensions = { x_, y_, w_, h_ };
+
+	//Attaching Components to Entity
+	this->AddComponent(button);
+	this->AddComponent(buttonLabel);
+}
+
 UIButtonEntity::~UIButtonEntity() { }
 
 //Sets Color of a specific State
@@ -34,11 +57,37 @@ void UIButtonEntity::SetColor(int state, SDL_Color textColor_, SDL_Color bgColor
 	auto it = colors.find(state);
 	if (it != colors.end()){
 		colors.find(state)->second[0] = textColor_;
+		if(!image)
 		colors.find(state)->second[1] = bgColor_;
 	}
 	else {
 		colors[state].push_back(textColor_);
+		if(!image)
 		colors[state].push_back(bgColor_);
+	}
+}
+
+void UIButtonEntity::SetColor(int state, SDL_Color textColor_) {
+	auto it = colors.find(state);
+	if (image) {
+		if (it != colors.end()) {
+			colors.find(state)->second[0] = textColor_;
+		}
+		else {
+			colors[state].push_back(textColor_);
+		}
+	}
+	else {
+		std::cout << "Background Color was not included, setting default to white" << std::endl;
+		SDL_Color white = *GameManager::assets.MakeColor(255, 255, 255);
+		if (it != colors.end()) {
+			colors.find(state)->second[0] = textColor_;
+			colors.find(state)->second[1] = white;
+		}
+		else {
+			colors[state].push_back(textColor_);
+			colors[state].push_back(white);
+		}
 	}
 }
 
@@ -49,6 +98,7 @@ void UIButtonEntity::SetImage(const std::string path_) {
 void UIButtonEntity::Hover() {
 	//Set Color of the Button Components
 	buttonLabel->SetColor(colors.find(e_Hover)->second[0]);
+	if(!image)
 	button->SetColor(colors.find(e_Hover)->second[1]);
 
 	//Insert Hover Code here...
@@ -58,9 +108,9 @@ void UIButtonEntity::Hover() {
 void UIButtonEntity::MouseDown() {
 	//Set Color of the Button Components
 	buttonLabel->SetColor(colors.find(e_MouseDown)->second[0]);
-	if (!button->image) {
-		button->SetColor(colors.find(e_MouseDown)->second[1]);
-	}
+	if (!image)
+	button->SetColor(colors.find(e_MouseDown)->second[1]);
+
 
 	//Insert MouseDown Code here...
 	Scene1::text = "Button Pressed: " + buttonLabel->GetText();
@@ -94,6 +144,7 @@ void UIButtonEntity::DeActivate() {
 void UIButtonEntity::Update() {
 	//Set Color of the Button Components
 	buttonLabel->SetColor(colors.find(e_Normal)->second[0]);
+	if(!image)
 	button->SetColor(colors.find(e_Normal)->second[1]);
 
 	//Checking where Mouse Position is relative to Button
@@ -158,11 +209,12 @@ UIBarEntity::~UIBarEntity() { }
 ///NOTE: Values that can be chosen are -INF to -1, -0.5 to 0.5,  1 to INF
 void UIBarEntity::Change(float amount) {
 	if (fmodf(amount, 1) == 0 || accumulator >= 1.0f) {
-		if (amount < accumulator) {
+		std::cout << amount << std::endl;
+		if (amount < accumulator && !(amount < 0)) {
 			amount = 1;
 		}
 		if (isVertical) {
-			if (barDimensions.h > 0) {
+			if (barDimensions.h > 0 && barDimensions.h + -amount < barStartDimensions.h) {
 				barDimensions.h -= (int)amount;
 				if (flipped) {
 					barDimensions.y += (int)amount;
@@ -175,8 +227,8 @@ void UIBarEntity::Change(float amount) {
 			}
 		}
 		else {
-			if (barDimensions.w > 0) {
-				barDimensions.w -= (int)amount;
+			if (barDimensions.w > 0 && barDimensions.w + -amount < barStartDimensions.w) {
+					barDimensions.w -= (int)amount;
 				if (flipped) {
 					barDimensions.x += (int)amount;
 				}
@@ -222,6 +274,8 @@ void UIBarEntity::Update() {
 
 	//Update the Bars Dimension
 	bar->canvasDimension = barDimensions;
+
+	std::cout << barDimensions.w << std::endl;
 
 	//Default Update
 	for (auto c : components) { c->Update(); }
