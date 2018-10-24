@@ -163,6 +163,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Scene1.h" />
     <ClInclude Include="Systems.h" />
+    <ClInclude Include="UIManager.h" />
     <ClInclude Include="Utilities.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="UIComponents.h" />
@@ -178,6 +179,7 @@
     <ClCompile Include="Scene1.cpp" />
     <ClCompile Include="Systems.cpp" />
     <ClCompile Include="Tester.cpp" />
+    <ClCompile Include="UIManager.cpp" />
     <ClCompile Include="Utilities.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="UIComponents.cpp" />

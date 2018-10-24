@@ -38,7 +38,7 @@ public:
 //-------------------------------------------------------- System -------------------------------------------------------
 
 class System {
-private :
+protected :
 	bool active;
 	//A vector of Entities
 	std::vector<std::shared_ptr<Entity>> system;
@@ -47,10 +47,11 @@ public:
 	std::shared_ptr<Entity> CreateEntity(); ///Creates a Basic Entity
 	void AddEntity(std::shared_ptr<Entity> entity); //Allows Insertion for a complex Entity
 	bool IsActive();
-	void Create();
-	void Update();
-	void Render();
-	void Refresh();
-	void Destroy();
+
+	virtual void Create(); //Should Create and Add Entites
+	virtual void Update();
+	virtual void Render();
+	virtual void Refresh();
+	virtual void Destroy();
 };
 #endif
