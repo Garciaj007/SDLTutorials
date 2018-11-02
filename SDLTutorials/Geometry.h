@@ -2,6 +2,7 @@
 #define GEOMETRY_H
 
 #include "Vector.h"
+#include <vector>
 struct Ray {
 	//Member Variables
 	mutable Vector3 start; ///Start Point

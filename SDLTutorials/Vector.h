@@ -32,6 +32,7 @@ struct Vector2
 	Vector2 operator - (const Vector2& v_) const;
 	Vector2 operator * (const float s) const;
 	Vector2 operator * (const Vector2& v_) const;
+	Vector2 operator / (const float s) const;
 	Vector2 operator / (const Vector2& v_) const;
 	Vector2 operator += (const Vector2& v_) const;
 	Vector2 operator -= (const Vector2& v_) const;
@@ -62,6 +63,7 @@ struct Vector3 {
 	Vector3 operator - (const Vector3& v_) const;
 	Vector3 operator * (const float s) const;
 	Vector3 operator * (const Vector3& v_) const;
+	Vector3 operator / (const float s) const;
 	Vector3 operator / (const Vector3& v_) const;
 	Vector3 operator += (const Vector3& v_) const;
 	Vector3 operator -= (const Vector3& v_) const;
@@ -91,6 +93,7 @@ struct Vector4 {
 	Vector4 operator - (const Vector4& v_) const;
 	Vector4 operator * (const float s) const;
 	Vector4 operator * (const Vector4& v_) const;
+	Vector4 operator / (const float s) const;
 	Vector4 operator / (const Vector4& v_) const;
 	Vector4 operator += (const Vector4& v_) const;
 	Vector4 operator -= (const Vector4& v_) const;

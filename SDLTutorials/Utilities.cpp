@@ -1,6 +1,7 @@
 #include "Utilities.h"
 #include <SDL_image.h>
 #include <algorithm>
+#include "Geometry.h"
 
 //------------------------------------------- Asset Manager ----------------------------------------------
 
@@ -127,3 +128,5 @@ std::string Time::ToString() {
 	}
 	return std::to_string(hours) + ":" + m + ":" + s;
 }
+
+//----------------------------------------------------------- Point ----------------------------------------------------------

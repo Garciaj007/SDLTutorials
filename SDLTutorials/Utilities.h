@@ -6,6 +6,7 @@
 #include <SDL_ttf.h>
 #include <memory>
 #include <string>
+#include "Geometry.h"
 
 class AssetManager {
 private: 

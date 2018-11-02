@@ -71,6 +71,11 @@ Vector2 Vector2::operator * (const Vector2& v_) const{
 	return temp;
 }
 
+Vector2 Vector2::operator / (const float s) const {
+	Vector2 temp(x / s, y / s);
+	return temp;
+}
+
 //Divide Vector Components
 Vector2 Vector2::operator / (const Vector2& v_) const{
 	Vector2 temp(x / v_.x, y / v_.y);
@@ -161,6 +166,11 @@ Vector3 Vector3::operator * (const Vector3& v_) const {
 	return temp;
 }
 
+Vector3 Vector3::operator/(const float s) const {
+	Vector3 temp(x / s, y / s, z / s);
+	return temp;
+}
+
 Vector3 Vector3::operator / (const Vector3& v_) const {
 	Vector3 temp(x / v_.x, y / v_.y, z / v_.z);
 	return temp;
@@ -234,6 +244,11 @@ Vector4 Vector4::operator * (const float s) const {
 
 Vector4 Vector4::operator * (const Vector4& v_) const {
 	Vector4 temp(x * v_.x, y * v_.y, z * v_.z, w * v_.w);
+	return temp;
+}
+
+Vector4 Vector4::operator/ (const float s) const {
+	Vector4 temp(x / s, y / s, z / s, w / s);
 	return temp;
 }
 

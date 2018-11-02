@@ -157,6 +157,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Body.h" />
+    <ClInclude Include="Collider.h" />
     <ClInclude Include="ECS.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Geometry.h" />
@@ -171,6 +173,8 @@
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Body.cpp" />
+    <ClCompile Include="Collider.cpp" />
     <ClCompile Include="ECS.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Geometry.cpp" />

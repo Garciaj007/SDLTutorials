@@ -1,5 +1,2 @@
-﻿  GameManager.cpp
-  Scene1.cpp
-  UIEntities.cpp
-  Generating Code...
+﻿  Collider.cpp
   SDLTutorials.vcxproj -> C:\Development\C++\SDLTutorials\Debug\SDLTutorials.exe
