@@ -3,10 +3,14 @@
 
 #include <string>
 
-//Defining Structs
+//Forward Declaration
 struct Vector2;
 struct Vector3;
 struct Vector4;
+
+#ifndef VERY_SMALL
+#define VERY_SMALL 1.0E-7F
+#endif
 
 //---------------------------------------------- Vector 2 ------------------------------------------------
 struct Vector2
@@ -16,8 +20,10 @@ struct Vector2
 
 	//Constructors
 	Vector2(float x_, float y_);
-	Vector2(Vector3 otherV_);
-	Vector2(Vector4 otherV_);
+	Vector2(const Vector2& v);
+	Vector2(const Vector3& v);
+	Vector2(const Vector4& v);
+	Vector2(float s);
 	Vector2();
 
 	//Member Methods
@@ -26,8 +32,11 @@ struct Vector2
 	float Mag();
 	float Dot(Vector2 otherV_);
 	std::string ToString();
-		  
+
 	//Operator Overloads
+	Vector2& operator = (const Vector2& v);
+	Vector2& operator = (const Vector3& v);
+	Vector2& operator = (const Vector4& v);
 	Vector2 operator + (const Vector2& v_) const;
 	Vector2 operator - (const Vector2& v_) const;
 	Vector2 operator * (const float s) const;
@@ -46,8 +55,10 @@ struct Vector3 {
 
 	//Constructors
 	Vector3(float x_, float y_, float z_);
-	Vector3(Vector2 otherV_);
-	Vector3(Vector4 otherV_);
+	Vector3(const Vector2& otherV_);
+	Vector3(const Vector3& otherV_);
+	Vector3(const Vector4& otherV_);
+	Vector3(float s);
 	Vector3();
 
 	//Member Methods
@@ -59,6 +70,9 @@ struct Vector3 {
 	std::string ToString();
 
 	//Operator Overloads
+	Vector3& operator = (const Vector2& v_);
+	Vector3& operator = (const Vector3& v_);
+	Vector3& operator = (const Vector4& v_);
 	Vector3 operator + (const Vector3& v_) const;
 	Vector3 operator - (const Vector3& v_) const;
 	Vector3 operator * (const float s) const;
@@ -77,8 +91,10 @@ struct Vector4 {
 
 	//Constructors 
 	Vector4(float x_, float y_, float z_, float w_);
-	Vector4(Vector2 otherV_);
-	Vector4(Vector3 otherV_);
+	Vector4(const Vector2& otherV_);
+	Vector4(const Vector3& otherV_);
+	Vector4(const Vector4& otherV_);
+	Vector4(float s);
 	Vector4();
 
 	//Member Methods 
@@ -89,6 +105,9 @@ struct Vector4 {
 	std::string ToString();
 
 	//Operator Overloads
+	Vector4& operator = (const Vector2& v_);
+	Vector4& operator = (const Vector3& v_);
+	Vector4& operator = (const Vector4& v_);
 	Vector4 operator + (const Vector4& v_) const;
 	Vector4 operator - (const Vector4& v_) const;
 	Vector4 operator * (const float s) const;
@@ -98,5 +117,6 @@ struct Vector4 {
 	Vector4 operator += (const Vector4& v_) const;
 	Vector4 operator -= (const Vector4& v_) const;
 };
+
 #endif
 

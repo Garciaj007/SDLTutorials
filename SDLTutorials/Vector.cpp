@@ -1,9 +1,15 @@
 #include "Vector.h"
 #include <math.h>
 //------------------------------------------------------- Vector 2 ----------------------------------------------------------
+
 //Create Vector at 0,0
+
 Vector2::Vector2() {
 	Set(0, 0);
+}
+
+Vector2::Vector2(float s = float(0.0)) {
+	Set(s, s);
 }
 
 //Create Vector at x,y
@@ -11,14 +17,18 @@ Vector2::Vector2(float x_, float y_) {
 	Set(x_, y_);
 }
 
+Vector2::Vector2(const Vector2& v) {
+	Set(v.x, v.y);
+}
+
 //Create Vector2 from Vector3
-Vector2::Vector2(Vector3 otherV_) {
-	Set(otherV_.x, otherV_.y);
+Vector2::Vector2(const Vector3& v) {
+	Set(v.x, v.y);
 }
 
 //Create Vector2 from Vector4
-Vector2::Vector2(Vector4 otherV_) {
-	Set(otherV_.x, otherV_.y);
+Vector2::Vector2(const Vector4& v) {
+	Set(v.x, v.y);
 }
 
 //Normalize Vector
@@ -45,6 +55,21 @@ float Vector2::Dot(Vector2 otherV_) {
 //Convert to String
 std::string Vector2::ToString() {
 	return "[" + std::to_string(x) + "," + std::to_string(y) + "]";
+}
+
+Vector2& Vector2::operator=(const Vector2& v_) {
+	Set(v_.x, v_.y);
+	return *this;
+}
+
+Vector2& Vector2::operator=(const Vector3& v_) {
+	Set(v_.x, v_.y);
+	return *this;
+}
+
+Vector2& Vector2::operator=(const Vector4& v_) {
+	Set(v_.x, v_.y);
+	return *this;
 }
 
 //Add Vector Components
@@ -101,18 +126,26 @@ Vector3::Vector3() {
 	Set(0, 0, 0);
 }
 
+Vector3::Vector3(float s) {
+	Set(s, s, s);
+}
+
 //Creates Vector at x,y,z values
 Vector3::Vector3(float x_, float y_, float z_) {
 	Set(x_, y_, z_);
 }
 
 //Creates a 3D Vector using 2D Vector
-Vector3::Vector3(Vector2 otherV_) {
+Vector3::Vector3(const Vector2& otherV_) {
 	Set(otherV_.x, otherV_.y, 0);
 }
 
+Vector3::Vector3(const Vector3& otherV_) {
+	Set(otherV_.x, otherV_.y, otherV_.z);
+}
+
 //Creates a 3D Vector using 4D Vector 
-Vector3::Vector3(Vector4 otherV_) {
+Vector3::Vector3(const Vector4& otherV_) {
 	Set(otherV_.x, otherV_.y, otherV_.z);
 }
 
@@ -144,6 +177,21 @@ Vector3 Vector3::Cross(Vector3 v_) {
 
 std::string Vector3::ToString() {
 	return "[" + std::to_string(x) + "," + std::to_string(y) + "," + std::to_string(z) + "]";
+}
+
+Vector3& Vector3::operator=(const Vector2& v_) {
+	Set(v_.x, v_.y, 0.0);
+	return *this;
+}
+
+Vector3& Vector3::operator=(const Vector3& v_) {
+	Set(v_.x, v_.y, v_.z);
+	return *this;
+}
+
+Vector3& Vector3::operator=(const Vector4& v_) {
+	Set(v_.x, v_.y, v_.z);
+	return *this;
 }
 
 Vector3 Vector3::operator + (const Vector3& v_) const {
@@ -187,21 +235,28 @@ Vector3 Vector3::operator -= (const Vector3& v_) const {
 }
 
 //---------------------------------------------------------- Vector 4 ----------------------------------------------------------------
-
 Vector4::Vector4() {
-	Set(0, 0, 0, 0);
+	Set(0,0,0,0);
+}
+
+Vector4::Vector4(float s) {
+	Set(s, s, s, s);
 }
 
 Vector4::Vector4(float x_, float y_, float z_, float w_) {
 	Set(x_, y_, z_, w_);
 }
 
-Vector4::Vector4(Vector2 otherV_) {
+Vector4::Vector4(const Vector2& otherV_) {
 	Set(otherV_.x, otherV_.y, 0, 0);
 }
 
-Vector4::Vector4(Vector3 otherV_) {
+Vector4::Vector4(const Vector3& otherV_) {
 	Set(otherV_.x, otherV_.y, otherV_.z, 0);
+}
+
+Vector4::Vector4(const Vector4& otherV_) {
+	Set(otherV_.x, otherV_.y, otherV_.z, otherV_.w);
 }
 
 void Vector4::Normalize() {
@@ -225,6 +280,21 @@ float Vector4::Dot(Vector4 otherV_) {
 
 std::string Vector4::ToString() {
 	return "[" + std::to_string(x) + "," + std::to_string(y) + "," + std::to_string(z) + "," + std::to_string(w) + "]";
+}
+
+Vector4& Vector4::operator = (const Vector2& v_) {
+	Set(v_.x, v_.y, 0, 0);
+	return *this;
+}
+
+Vector4& Vector4::operator = (const Vector3& v_) {
+	Set(v_.x, v_.y, v_.z, 0);
+	return *this;
+}
+
+Vector4& Vector4::operator = (const Vector4& v_) {
+	Set(v_.x, v_.y, v_.z, v_.w);
+	return *this;
 }
 
 Vector4 Vector4::operator + (const Vector4& v_) const {
