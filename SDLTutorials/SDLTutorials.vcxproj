@@ -162,6 +162,7 @@
     <ClInclude Include="ECS.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Geometry.h" />
+    <ClInclude Include="Matrix4.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Scene1.h" />
     <ClInclude Include="Systems.h" />
@@ -179,6 +180,7 @@
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Geometry.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Matrix4.cpp" />
     <ClCompile Include="Scene1.cpp" />
     <ClCompile Include="Systems.cpp" />
     <ClCompile Include="Tester.cpp" />
