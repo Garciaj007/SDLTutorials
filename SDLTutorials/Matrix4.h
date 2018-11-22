@@ -14,8 +14,10 @@ private:
 public:
 	//Constructor
 	Matrix4();
+	Matrix4(Matrix4& otherM);
 
 	//Member Methods
+	void SetNull() const;
 	void SetIdentity() const;
 	void Transpose() const;
 	void Scale(float x, float y, float z) const;
@@ -28,6 +30,9 @@ public:
 	void Print() const;
 
 	//Operator Overloads
+
+	Matrix4 operator * (const Matrix4& otherMat) const;
+	Vector3 operator * (const Vector4& otherV) const;
 
 	//Get Matrix component
 	inline float operator () (int r, int c)const {

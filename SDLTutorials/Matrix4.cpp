@@ -8,6 +8,23 @@ Matrix4::Matrix4()
 	SetIdentity();
 }
 
+Matrix4::Matrix4(Matrix4& mat) {
+	for (int i = 0; i < 4; i++) {
+		for (int j = 0; j < 4; j++) {
+			m[i][j] = mat(i, j);
+		}
+	}
+}
+
+//Sets all components to 0
+void Matrix4::SetNull() const {
+	for (int i = 0; i < 4; i++) {
+		for (int j = 0; j < 4; j++) {
+			m[i][i] = 0;
+		}
+	}
+}
+
 //Sets Matrix to identity Matrix
 void Matrix4::SetIdentity() const {
 	for (int i = 0; i < 4; i++) {
@@ -93,4 +110,24 @@ void Matrix4::Print() const {
 		}
 		std::cout << std::endl;
 	}
+}
+
+Matrix4 Matrix4::operator * (const Matrix4& otherMat) const {
+	Matrix4 result;
+	for (int i = 0; i < 4; i++) {
+		for (int j = 0; j < 4; j++) {
+			result(i, j) = m[i][0] * otherMat(0, j);
+			result(i, j) += m[i][1] * otherMat(1, j);
+			result(i, j) += m[i][2] * otherMat(2, j);
+			result(i, j) += m[i][3] * otherMat(3, j);
+		}
+	}
+	return result;
+}
+
+Vector3 Matrix4::operator * (const Vector4& otherV) const {
+	Matrix4 result;
+	result.Translate(otherV.x, otherV.y, otherV.z);
+	result = *this * result;
+	Vector3 v(result(3, 0), result(3, 1), result(3, 2));
 }
