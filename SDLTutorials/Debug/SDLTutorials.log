@@ -1,27 +1,2 @@
-﻿  Body.cpp
-d:\development\c++\sdltutorials\sdltutorials\body.h(4): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
-  Collider.cpp
-d:\development\c++\sdltutorials\sdltutorials\body.h(4): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
-  GameManager.cpp
-d:\development\c++\sdltutorials\sdltutorials\gamemanager.h(3): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
-  Main.cpp
-d:\development\c++\sdltutorials\sdltutorials\gamemanager.h(3): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
-  Matrix4.cpp
-d:\development\c++\sdltutorials\sdltutorials\matrix4.cpp(80): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-d:\development\c++\sdltutorials\sdltutorials\matrix4.cpp(89): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-d:\development\c++\sdltutorials\sdltutorials\matrix4.cpp(98): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-  Scene1.cpp
-d:\development\c++\sdltutorials\sdltutorials\scene.h(3): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
-  Tester.cpp
-  Utilities.cpp
-d:\development\c++\sdltutorials\sdltutorials\utilities.h(4): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
-  Timer.cpp
-d:\development\c++\sdltutorials\sdltutorials\timer.cpp(2): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
-  UIComponents.cpp
-d:\development\c++\sdltutorials\sdltutorials\uicomponents.h(6): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
-  UIEntities.cpp
-d:\development\c++\sdltutorials\sdltutorials\uicomponents.h(6): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
-  Window.cpp
-d:\development\c++\sdltutorials\sdltutorials\window.h(3): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
-  Generating Code...
-d:\development\c++\sdltutorials\sdltutorials\matrix4.cpp(133): error C4716: 'Matrix4::operator*': must return a value
+﻿  Tester.cpp
+  SDLTutorials.vcxproj -> C:\Development\C++\SDLTutorials\Debug\SDLTutorials.exe

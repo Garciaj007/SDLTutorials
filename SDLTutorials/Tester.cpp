@@ -2,49 +2,30 @@
 #include "Vector.h"
 #include <iostream>
 
-
 int main(int argc, char* argv[])
 {
-	//Matrix Stack var
-	Matrix4 mat;
-	Vector3 v(1, 2, 3);
+	//Standard Matrix4 Multiplication
+	std::cout << "//Standard Matrix4 Multiplication//" << std::endl << std::endl;
+	Matrix4 mat1(1, 0, 1, 0, 0, 4, 2, 0, 2, 1, 1, 2, 1, 0, 0, 3);
+	mat1.Print();
 
-	//Setting value manually
-	mat.SetNull();
-	mat(0, 3) = 4;
-	mat.Print();
+	Matrix4 mat2(1, 0, 1, 0, 0, 4, 2, 0, 2, 1, 1, 2, 1, 0, 0, 3);
+	mat2.Print();
 
-	std::cout << mat(0, 3) << std::endl; //getting that value
+	Matrix4 result = mat1 * mat2;
+	result.Print();
 
-	//Setting Translation Matrix by vector
-	mat.SetNull();
-	mat.Translate(v);
-	mat.Print();
+	//Matrix4 * Vector4 Multiplication
+	std::cout << "//Matrix4 * Vector4 Multiplication//" << std::endl << std::endl;
+	Vector3 v_Result = MatrixMath::Translate(1, 2, 3) * Vector4(1);
+	std::cout << v_Result.ToString() << std::endl << std::endl;
 
-	//Set Scaling Matrix
-	mat.SetNull();
-	mat.Scale(2, 3, 4);
-	mat.Print();
-
-	//Transposing Matrix
-	mat.SetNull();
-	mat.Transpose();
-	mat.Print();
-
-	//Rotating Matrix on X Axis by 60
-	mat.SetNull();
-	mat.RotateX(60);
-	mat.Print();
-
-	//Rotating Matrix on Y Axis by 80
-	mat.SetNull();
-	mat.RotateY(80);
-	mat.Print();
-
-	//Rotating Matrix on Z Axis by 40
-	mat.SetNull();
-	mat.RotateZ(40);
-	mat.Print();
+	//Matrix Inversion
+	std::cout << "//Matrix Inversion//" << std::endl << std::endl;
+	Matrix4 mat3(1,0,1,0,0,4,2,0,2,1,1,2,1,0,0,3);
+	mat3.Print();
+	mat3.Invert();
+	mat3.Print();
 
 	getchar();
 
