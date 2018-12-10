@@ -302,6 +302,10 @@ Vector4 Vector4::operator + (const Vector4& v_) const {
 	return temp;
 }
 
+void Vector4::operator-()const {
+	x = -x; y = -y; z = -z; w = -w;
+}
+
 Vector4 Vector4::operator - (const Vector4& v_) const {
 	Vector4 temp(x - v_.x, y - v_.y, z - v_.z, w - v_.w);
 	return temp;

@@ -105,6 +105,7 @@ struct Vector4 {
 	std::string ToString();
 
 	//Operator Overloads
+	void operator - ()const;
 	Vector4& operator = (const Vector2& v_);
 	Vector4& operator = (const Vector3& v_);
 	Vector4& operator = (const Vector4& v_);

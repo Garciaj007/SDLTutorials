@@ -7,13 +7,16 @@
 class Quaternion
 {
 public:
+	//Member
 	mutable Vector4 quaternion;
 
+	//Constructors
 	Quaternion();
 	Quaternion(Vector3 axis, float angle);
+	Quaternion(float x, float y, float z, float w);
 	Quaternion(const Vector4& v);
-	Quaternion(const Quaternion& q);
 
+	//Member Methods
 	Vector3 Rotate(const Vector3& v);
 	Matrix4 ConvertToMatrix();
 	float Mag();
@@ -21,13 +24,14 @@ public:
 	void Normalize();
 	void Conjugate();
 	void Inverse();
-	void Slerp(const Quaternion& otherQuat, float t);
+	Quaternion Slerp(const Quaternion& otherQuat, float t);
+	Quaternion Lerp(const Quaternion& otherQuat, float t);
 	
+	//Operator Overloads
 	Quaternion& operator=(const Quaternion& q);
 	Quaternion operator*(const Quaternion& q);
 	Quaternion operator+(const Quaternion& q);
 	Quaternion operator-(const Quaternion& q);
-	Quaternion operator/(const Quaternion& q)
 };
 
 #endif

@@ -1,31 +1,27 @@
 #include "Matrix4.h"
 #include "Vector.h"
+#include "Quaternion.h"
 #include <iostream>
 
 int main(int argc, char* argv[])
 {
-	//Standard Matrix4 Multiplication
-	std::cout << "//Standard Matrix4 Multiplication//" << std::endl << std::endl;
-	Matrix4 mat1(1, 0, 1, 0, 0, 4, 2, 0, 2, 1, 1, 2, 1, 0, 0, 3);
-	mat1.Print();
+	//Testing Vector3 Roation
+	Quaternion q1(Vector3(0, 0, 1), 90);
+	Vector3 result = q1.Rotate(Vector3(1, 0, 0));
+	std::cout << "Testing Vector3 Roation" << std::endl;
+	std::cout << result.ToString() << std::endl << std::endl;
 
-	Matrix4 mat2(1, 0, 1, 0, 0, 4, 2, 0, 2, 1, 1, 2, 1, 0, 0, 3);
-	mat2.Print();
+	//Testing Quaternion Multiplication
+	Quaternion q2(1, 2, 2, 3);
+	Quaternion q3(2, 1, 2, 5);
+	Quaternion q_result = q2 * q3;
+	std::cout << "Testing Quaternion Multiplication" << std::endl;
+	std::cout << q_result.quaternion.ToString() << std::endl << std::endl;
 
-	Matrix4 result = mat1 * mat2;
-	result.Print();
-
-	//Matrix4 * Vector4 Multiplication
-	std::cout << "//Matrix4 * Vector4 Multiplication//" << std::endl << std::endl;
-	Vector3 v_Result = MatrixMath::Translate(1, 2, 3) * Vector4(1);
-	std::cout << v_Result.ToString() << std::endl << std::endl;
-
-	//Matrix Inversion
-	std::cout << "//Matrix Inversion//" << std::endl << std::endl;
-	Matrix4 mat3(1,0,1,0,0,4,2,0,2,1,1,2,1,0,0,3);
-	mat3.Print();
-	mat3.Invert();
-	mat3.Print();
+	//Testing Slerp Interpolation
+	Quaternion slerpResult = q2.Slerp(q3, 0.5f);
+	std::cout << "Testing Quaternion Slerp" << std::endl;
+	std::cout << slerpResult.quaternion.ToString() << std::endl << std::endl;
 
 	getchar();
 

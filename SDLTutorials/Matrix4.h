@@ -55,7 +55,7 @@ public:
 	Matrix3();
 	Matrix3(const Matrix3& m);
 	Matrix3(float s);
-	Matrix(float x1, float x2, float x3, float y1, float y2, float y3, float z1, float z2, float z3);
+	Matrix3(float x1, float x2, float x3, float y1, float y2, float y3, float z1, float z2, float z3);
 	
 	//Member Methods
 	void SetNull() const;
@@ -63,21 +63,16 @@ public:
 	void Transpose() const;
 	void Scale(float x, float y, float z) const;
 	void Scale(Vector3 scale) const;
-	void Translate(float x, float y, float z) const;
-	void Translate(Vector3 translation) const;
 	void RotateX(float angleInDegrees) const;
 	void RotateY(float angleInDegrees) const;
 	void RotateZ(float angleInDegrees) const;
-	void Invert() const;
 	void Print() const;
 
 
 	//Operator Overloads
 	Matrix3 operator * (const Matrix3& otherMat) const;
-	Vector3 operator * (const Vector4& otherV) const;
-	Vector3 operator * (const Vector3& otherV) const;
-	//Get Matrix component
 
+	//Get Matrix component
 	inline float operator () (int r, int c)const {
 		return m[r][c];
 	}
