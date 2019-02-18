@@ -2,8 +2,8 @@
 #include "Window.h"
 #include "Timer.h"
 #include <iostream>
-#include <SDL_image.h>
-#include <SDL_ttf.h>
+#include <SDL/SDL_image.h>
+#include <SDL/SDL_ttf.h>
 #include "Scene1.h"
 
 //Declaring Static Members

@@ -1,6 +1,6 @@
 #ifndef SCENE_H
 #define SCENE_H
-#include <SDL.h>
+#include <SDL/SDL.h>
 
 class Scene {
 public:

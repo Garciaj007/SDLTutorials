@@ -1,6 +1,6 @@
 #ifndef GAMEMANAGER_H
 #define GAMEMANAGER_H
-#include <SDL.h>
+#include <SDL/SDL.h>
 #include "Scene.h"
 #include "Utilities.h"
 #include <memory>

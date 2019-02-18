@@ -1,9 +1,9 @@
 #ifndef ASSETMANAGER_H
 #define ASSETMANAGER_H
 
-#include <SDL.h>
+#include <SDL/SDL.h>
 #include <map>
-#include <SDL_ttf.h>
+#include <SDL/SDL_ttf.h>
 #include <memory>
 #include <string>
 #include "Geometry.h"

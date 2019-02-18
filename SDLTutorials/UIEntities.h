@@ -2,7 +2,7 @@
 #define UIENTITIES_H
 #include "ECS.h"
 #include "UIComponents.h"
-#include <SDL.h>
+#include <SDL/SDL.h>
 #include <map>
 #include <vector>
 #include <string>

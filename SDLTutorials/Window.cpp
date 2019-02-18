@@ -1,7 +1,6 @@
 #include "Window.h"
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_ttf.h>
+#include <SDL/SDL_image.h>
+#include <SDL/SDL_ttf.h>
 #include <iostream>
 
 Window::Window(const char* name_, SDL_Point size_, SDL_Point position_) {

@@ -1,7 +1,7 @@
 #include "ECS.h"
 #include "UIComponents.h"
 #include "GameManager.h"
-#include <SDL_image.h>
+#include <SDL/SDL_image.h>
 #include "Utilities.h"
 
 //Constructors

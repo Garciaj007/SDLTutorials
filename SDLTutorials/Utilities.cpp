@@ -1,5 +1,5 @@
 #include "Utilities.h"
-#include <SDL_image.h>
+#include <SDL/SDL_image.h>
 #include <algorithm>
 #include "Geometry.h"
 

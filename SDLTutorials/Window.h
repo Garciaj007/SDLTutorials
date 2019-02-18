@@ -1,6 +1,6 @@
 #ifndef WINDOW_H
 #define WINDOW_H
-#include <SDL.h>
+#include <SDL/SDL.h>
 class Window {
 private:
 	SDL_Window* window;

@@ -1,7 +1,7 @@
 #ifndef BODY_H
 #define BODY_H
 #include "Vector.h"
-#include <SDL.h>
+#include <SDL/SDL.h>
 
 class Body {
 private:
